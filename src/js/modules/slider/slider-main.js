@@ -1,20 +1,11 @@
+import Slider from "./slider";
 
-
-export default class Slider {
+export default class MainSlider extends Slider {
     constructor (page, btns) {
-        this.page = document.querySelector(page);
-        this.slides = this.page.children;
-        this.btns = document.querySelectorAll(btns);
-        this.slideIndex = 1;
+        super(page,btns);
     }
-    
-   
-
-
 
     showSlides(n) {
-
-        
 
         if (n > this.slides.length) {
             this.slideIndex = 1;
@@ -57,7 +48,6 @@ export default class Slider {
             this.hanson = document.querySelector('.hanson');
         } catch(e) {console.log('ErorrWithHANSON');}
 
-       
         this.btns.forEach(btn => {
             btn.addEventListener('click', () => {
                 this.plusSlides(1);
@@ -72,15 +62,4 @@ export default class Slider {
         this.showSlides(this.slideIndex);
     }
    
-    
-   
-
-}
-
-function showHanson(hansonSelector) {
-    const  hanson = document.querySelector(hansonSelector);
-   
-    hanson.classList.add('animated', 'fadeIn');
-    hanson.style.display = 'block';
-    
 }
